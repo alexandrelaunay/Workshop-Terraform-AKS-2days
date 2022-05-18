@@ -73,7 +73,7 @@ jobs: # 3 jobs qui s'enchaînent à la suite : 1 analyze-code - 2 test-unitaire 
       - name: Scan Image
         uses: Azure/container-scan@v0 
         id: container-scan
-        continue-on-error: false
+        continue-on-error: true
         with:
           image-name: ${{ env.REGISTRY_NAME}}.azurecr.io/${{ env.APP_NAME }}:${{ env.IMAGE_VERSION }}         
 
