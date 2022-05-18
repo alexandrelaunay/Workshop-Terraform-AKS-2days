@@ -31,8 +31,10 @@ jobs:
       - name: Deploiement application dans AKS
         run: |      
           cd Kubernetes/Manifests/coolapi          
+          kubectl delete -f 2_deployment.yml
+          kubectl delete -f 3_service.yml
           kubectl apply -f 1_namespace.yml
-          kubectl apply -f 2_deployment.yml
-          kubectl apply -f 3_service.yml
+          kubectl apply -f 2_deployment.yml -n coolapiALY
+          kubectl apply -f 3_service.yml -n coolapiALY
 
 
